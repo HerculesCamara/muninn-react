@@ -1,6 +1,6 @@
-# Nome do Projeto
+# Nome do Projeto/Apresentação
 
-Muninn
+ Muninn é uma inovadora biblioteca virtual gamificada, concebida para transformar a experiência de aprendizado e desenvolvimento em um ambiente interativo e envolvente. Com um foco claro na em perfil de aprendizado mediado a educação, ela oferece uma plataforma onde o conhecimento é adquirido por meio de desafios, recompensas e progressão, criando uma jornada única para os usuários.
 
 ## Pré-requisitos
 
