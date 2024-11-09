@@ -4,6 +4,7 @@ import Login from './components/login/login';
 import CreateAccount from './components/CreateAccount/create'
 import ForgetPassword from './components/ForgetPassword/forgetPassword';
 import Home from './components/homePage/home'
+import MyAccount from './components/MyAccount/myAccount'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/createAccount" element={<CreateAccount />} />
         <Route path='/forgetPassword'element={<ForgetPassword/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path='/myAccount' element={<MyAccount/>}/>
       </Routes>
     </Router>
   );

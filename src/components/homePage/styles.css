@@ -9,7 +9,7 @@
   }
   
   .search-bar {
-    width: 18.75rem; /* 300px em rem */
+    width: 18.75rem; 
   }
   
   .search-bar .position-relative {
@@ -19,17 +19,17 @@
   .search-bar input[type="search"] {
     width: 100%;
     padding-left: 2rem; 
-    height: 2.5rem; /* Ajustado de px para rem */
-    border-radius: 1.25rem; /* Ajustado de px para rem */
+    height: 2.5rem; 
+    border-radius: 1.25rem; 
     border: 1px solid #ccc;
     background: #fff;
-    margin-left: 0.4rem; /* Adicionando margem à esquerda */
+    margin-left: 0.4rem; 
 }
   
   .search-icon {
     position: absolute;
     top: 50%;
-    left: 0.625rem; /* 10px em rem */
+    left: 0.625rem; 
     transform: translateY(-50%);
     color: #666;
   }
@@ -38,6 +38,9 @@
     width: 2.5rem; 
     height: 2.5rem; 
   }
+  .custom-dropdown-menu {
+    margin-left: -4rem;
+  }
   
   .black-box {
     background-color: #3E3A42;
@@ -45,7 +48,7 @@
   
   .box {
     padding: 1em;
-    border-radius: 0.313rem; /* 5px em rem */
+    border-radius: 0.313rem; 
   }
   
   .box h1 {
@@ -66,14 +69,14 @@
   .additional-content {
     display: flex;
     align-items: center;
-    margin-top: 0.875rem; /* 14px em rem */
+    margin-top: 0.875rem; 
     color: #fff;
   }
   
   .additional-content img {
     height: 1.8rem;
     width: 1.8rem;
-    margin-right: 0.375rem; /* 6px em rem */
+    margin-right: 0.375rem;
   }
   
   .additional-content span {
@@ -90,12 +93,12 @@
   }
   
   .carousel-item img {
-    height: 16rem; /* 120px em rem */
+    height: 16rem;
     width: 7rem;
   }
   
   .carousel-item .col-md-2 {
-    margin-right: 1rem; /* 16px em rem */
+    margin-right: 1rem;
   }
   
   .carousel-item img,
@@ -106,6 +109,6 @@
   .carousel-item img:hover,
   .content img:hover {
     transform: scale(1.1);
-    border: 0.125rem solid black; /* 2px em rem */
+    border: 0.125rem solid black; 
   }
   

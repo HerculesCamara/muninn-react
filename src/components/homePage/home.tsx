@@ -1,6 +1,6 @@
 import React from 'react';
-import { MagnifyingGlass } from 'phosphor-react'; // Importando o ícone de lupa do Phosphor
-import { Dropdown } from 'react-bootstrap'; // Importando o Dropdown do Bootstrap
+import { MagnifyingGlass } from 'phosphor-react';
+import { Navbar, Nav, Form, Dropdown, Container, Row, Col, Carousel } from 'react-bootstrap';
 import './styles.css';
 import muninnImg from '../../assets/munnin.png';
 import laisImg from '../../assets/lais.png';
@@ -12,62 +12,52 @@ import plantsImg from '../../assets/plants.png';
 import guiaPraticoImg from '../../assets/guia_pratico.jpg';
 import backImg from '../../assets/back.jpeg';
 import frank from '../../assets/frank.png';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
   return (
     <div className="home" style={{ backgroundImage: `url(${backImg})` }}>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-3">
-        {/* Logo do Corvo */}
-        <a className="navbar-brand" href="#">
+      <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="px-3">
+        <Navbar.Brand href="#">
           <img src={muninnImg} alt="Corvo" className="logo" />
-        </a>
-
-        {/* Campo de Pesquisa */}
-        <form className="form-inline mx-3 my-2 my-lg-0 search-bar">
+        </Navbar.Brand>
+        <Form inline className="mx-3 my-2 search-bar">
           <div className="position-relative">
             <MagnifyingGlass size={20} color="#666" className="search-icon" />
-            <input
-              className="form-control pl-4 ml-3" // Adicionando margin-left ao input
+            <Form.Control
               type="search"
               placeholder="Pesquisar títulos, gêneros, autores"
               aria-label="Pesquisar"
+              className="pl-4"
             />
           </div>
-        </form>
-
-        {/* Opções de Navegação */}
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">Explorar</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Eventos</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Comunidade</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Ícone e nome da Laís alinhados à direita com dropdown */}
+        </Form>
+        <Navbar.Collapse>
+          <Nav className="mr-auto">
+            <Nav.Link href="#">Explorar</Nav.Link>
+            <Nav.Link href="#">Eventos</Nav.Link>
+            <Nav.Link href="#">Comunidade</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
         <div className="d-flex align-items-center gap-2 user-info">
+        <div className="d-flex justify-content-start">
           <Dropdown>
             <Dropdown.Toggle variant="link" id="dropdown-basic" style={{ padding: 0 }}>
               <img src={laisImg} alt="Laís" className="rounded-circle" style={{ width: '40px', height: '40px' }} />
             </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href="#/minha-conta">Minha Conta</Dropdown.Item>
-              <Dropdown.Item href="#/sair">Sair</Dropdown.Item>
+            <Dropdown.Menu className="custom-dropdown-menu">
+              <Dropdown.Item as={Link} to="/myAccount">Minha Conta</Dropdown.Item>
+              <Dropdown.Item href="#">Perfil</Dropdown.Item>
+              <Dropdown.Item href="#">Listagem</Dropdown.Item>
+              <Dropdown.Item href="/">Sair</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+        </div>
           <span className="text-white ml-2 mb-3">Laís</span>
         </div>
-      </nav>
+      </Navbar>
 
-      {/* Espaçamento para compensar a navbar fixa */}
-      <div className="container mt-5 pt-5 black-box">
+      <Container className="mt-5 pt-5 black-box">
         <div className="box">
           <h1>Achamos que você vai curtir:</h1>
           <div className="content">
@@ -81,32 +71,20 @@ const Home: React.FC = () => {
               </div>
             </div>
             <h4 className="continue-reading-sub mt-4 ml-2">Continuar lendo</h4>
-            <div id="carouselExampleControls" className="carousel slide mt-2" data-ride="carousel">
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <div className="row">
-                    <div className="col-md-2">
-                      <img src={medicinaImg} className="d-block w-100" alt="Medicina" />
-                    </div>
-                    <div className="col-md-2">
-                      <img src={dermaImg} className="d-block w-100" alt="Derma" />
-                    </div>
-                    <div className="col-md-2">
-                      <img src={novaImg} className="d-block w-100" alt="Nova" />
-                    </div>
-                    <div className="col-md-2">
-                      <img src={plantsImg} className="d-block w-100" alt="Plants" />
-                    </div>
-                    <div className="col-md-2">
-                      <img src={guiaPraticoImg} className="d-block w-100" alt="Guia Prático" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Carousel controls={false} indicators={false} className="mt-2">
+              <Carousel.Item>
+                <Row>
+                  <Col md={2}><img src={medicinaImg} className="d-block w-100" alt="Medicina" /></Col>
+                  <Col md={2}><img src={dermaImg} className="d-block w-100" alt="Derma" /></Col>
+                  <Col md={2}><img src={novaImg} className="d-block w-100" alt="Nova" /></Col>
+                  <Col md={2}><img src={plantsImg} className="d-block w-100" alt="Plants" /></Col>
+                  <Col md={2}><img src={guiaPraticoImg} className="d-block w-100" alt="Guia Prático" /></Col>
+                </Row>
+              </Carousel.Item>
+            </Carousel>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

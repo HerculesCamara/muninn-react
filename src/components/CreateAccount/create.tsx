@@ -1,7 +1,7 @@
 // src/components/Register.tsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form, Button } from 'react-bootstrap';
 import './styles.css';
 
 const CreateAccount: React.FC = () => {
@@ -32,7 +32,7 @@ const CreateAccount: React.FC = () => {
     e.preventDefault();
     if (validateForm()) {
       alert('Conta criada com sucesso!');
-      navigate('/'); 
+      navigate('/');
     }
   };
 
@@ -41,77 +41,65 @@ const CreateAccount: React.FC = () => {
       <div className="w-50 d-flex justify-content-center align-items-center">
         <div className="p-4 bg-light rounded shadow" style={{ width: '80%', maxWidth: '400px' }}>
           <h2 className="text-center mb-4">Crie sua conta</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">Nome</label>
-              <input
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Label>Nome</Form.Label>
+              <Form.Control
                 type="text"
-                className="form-control"
-                id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Digite seu nome"
               />
               {errors.name && <div className="text-danger">{errors.name}</div>}
-            </div>
+            </Form.Group>
 
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input
+            <Form.Group className="mb-3" controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
                 type="email"
-                className="form-control"
-                id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Digite seu email"
               />
               {errors.email && <div className="text-danger">{errors.email}</div>}
-            </div>
+            </Form.Group>
 
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">Senha</label>
-              <input
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Senha</Form.Label>
+              <Form.Control
                 type="password"
-                className="form-control"
-                id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Digite sua senha"
               />
               {errors.password && <div className="text-danger">{errors.password}</div>}
-            </div>
+            </Form.Group>
 
-            <div className="mb-3">
-              <label htmlFor="confirmPassword" className="form-label">Confirme sua senha</label>
-              <input
+            <Form.Group className="mb-3" controlId="confirmPassword">
+              <Form.Label>Confirme sua senha</Form.Label>
+              <Form.Control
                 type="password"
-                className="form-control"
-                id="confirmPassword"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Confirme sua senha"
               />
               {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
-            </div>
+            </Form.Group>
 
-            <div className="form-check mb-3">
-              <input
+            <Form.Group className="mb-3" controlId="terms">
+              <Form.Check
                 type="checkbox"
-                className="form-check-input"
-                id="terms"
                 checked={termsAccepted}
                 onChange={(e) => setTermsAccepted(e.target.checked)}
+                label={<span>Concorda com os <Link to="/terms" style={{ color: 'blue' }}>termos de serviço?</Link></span>}
               />
-              <label htmlFor="terms" className="form-check-label">
-                Concorda com os <Link to="/terms" style={{ color: 'blue' }}>termos de serviço?</Link>
-              </label>
               {errors.terms && <div className="text-danger">{errors.terms}</div>}
-            </div>
+            </Form.Group>
 
-            <button type="submit" className="btn btn-primary w-100">
+            <Button type="submit" variant="primary" className="w-100">
               Criar Conta
-            </button>
-          </form>
+            </Button>
+          </Form>
         </div>
       </div>
     </div>
