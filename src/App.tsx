@@ -5,6 +5,7 @@ import CreateAccount from './pages/CreateAccount/create'
 import ForgetPassword from './pages/ForgetPassword/forgetPassword';
 import Home from './pages/homePage/home'
 import MyAccount from './pages/MyAccount/myAccount'
+import Profile from './pages/Profile';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='/forgetPassword'element={<ForgetPassword/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/myAccount' element={<MyAccount/>}/>
+        <Route path='/profile' element={<Profile/>}/>
       </Routes>
     </Router>
   );
